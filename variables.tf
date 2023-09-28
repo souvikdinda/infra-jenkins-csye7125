@@ -2,42 +2,67 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
-variable "publicroutetablecidr" {
-  default = "0.0.0.0/0"
-}
-
 variable "region" {
   default = "us-east-1"
 }
 
-# variable "profile" {
-#   default = "devprofile"
-# }
-
-# Declare the data source
 data "aws_availability_zones" "available_zones" {
   state = "available"
 }
 
-variable "ami" {
-  default = "ami-08e025ab87d09e589"
-
+variable "publicroutetablecidr" {
+  default = "0.0.0.0/0"
 }
 
-variable "ami_owner" {
-  default = "031552419504"
+data "aws_ami" "jenkins-ami" {
+  most_recent = true
+  owners      = ["191434387957"]
 
+  filter {
+    name   = "name"
+    values = ["JenkinsAMI_*"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 }
 
-variable "zone_name" {
-  default = "jenkins.dev.vaishnavipuppala.me"
+variable "configuration" {
+  description = "Configuration Settings"
+  type        = map(any)
+  default = {
+    "ec2_instance" = {
+      instance_type = "t2.micro"
+      volume_size   = 50
+      volume_type   = "gp2"
+    }
+  }
 }
 
-
-variable "domain" {
-  default = "dev.vaishnavipuppala.me"
+variable "host_name" {
+  type    = string
+  default = "souvikdinda.me"
 }
 
-variable "zone_id" {
-  default = "Z10190692SDJV7WK1Z9Y8"
+variable "email" {
+  type    = string
+  default = "dinda.s@northeastern.edu"
+}
+
+data "aws_route53_zone" "zone_name" {
+  name = var.host_name
+}
+
+data "aws_eip" "elastic_ip" {
+  filter {
+    name   = "tag:Name"
+    values = ["JenkinsElasticIP"]
+  }
 }
