@@ -35,9 +35,9 @@ variable "zone_name" {
 
 
 variable "domain" {
-  default     = "dev.vaishnavipuppala.me"
+  default = "dev.vaishnavipuppala.me"
 }
 
 variable "zone_id" {
-  default     = "Z10190692SDJV7WK1Z9Y8"
+  default = "Z10190692SDJV7WK1Z9Y8"
 }
