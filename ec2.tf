@@ -1,8 +1,9 @@
 # Creating key pair to enable ssh connection to ec2 instance
-resource "aws_key_pair" "ec2" {
-  key_name   = "connection-key"
-  public_key = file("~/.ssh/ec2.pub")
+
+data "aws_key_pair" "ec2" {
+  key_name           = "ec2"
 }
+ 
 
 # Creating  EC2 Instance
 resource "aws_instance" "jenkins_instance" {
@@ -16,7 +17,7 @@ resource "aws_instance" "jenkins_instance" {
   }
   subnet_id                   = aws_subnet.public-subnets.id
   security_groups             = ["${aws_security_group.jenkins_security_group.id}"]
-  key_name                    = aws_key_pair.ec2.key_name
+  key_name                    = data.aws_key_pair.ec2.key_name
   associate_public_ip_address = true
   tags = {
     "Name" = "Jenkins Server"
