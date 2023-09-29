@@ -5,8 +5,6 @@
 ---------------------------------------------------------------------------------------------
 - This project is dedicated to automating the setup and teardown of essential AWS infrastructure components required for hosting Jenkins. In addition to provisioning Jenkins, this project also includes automated SSL certificate management using Let's Encrypt with Caddy, ensuring a secure and streamlined Jenkins deployment.
 
-
-
 ### To run code:
 -----------------------
 
@@ -61,7 +59,6 @@ To tear down your infrastructure, use:
     ```
     terraform destroy
     ```
-    
 
 ### Infrastructure Setup
 
@@ -77,6 +74,5 @@ The Terraform scripts in this repository set up the following AWS infrastructure
 - **DNS Route53 Record**: DNS record in  Route 53 to associate a custom subdomain  with the Elastic IP address allocated for the Jenkins instance. 
 - **Caddy**: A web server used as a reverse proxy for Jenkins.
 - **Let's Encrypt**: Automatically managed SSL certificates for securing the Caddy server, ensuring encrypted communications.
-
 
 _This project is part of CSYE7125 course_
