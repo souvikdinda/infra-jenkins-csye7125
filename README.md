@@ -34,6 +34,7 @@ Before running the Terraform scripts, ensure the following prerequisites install
 
 **Terraform Commands**
 Use the following Terraform commands to deploy and manage your infrastructure:
+
 1. Initialize Terraform:
 Run the following command to initialize Terraform in your project directory:
     ```
@@ -59,6 +60,7 @@ To tear down your infrastructure, use:
     ```
     terraform destroy
     ```
+    
 
 ### Infrastructure Setup
 
