@@ -1,9 +1,9 @@
 # Creating key pair to enable ssh connection to ec2 instance
 
 data "aws_key_pair" "ec2" {
-  key_name           = "ec2"
+  key_name = "ec2"
 }
- 
+
 
 # Creating  EC2 Instance
 resource "aws_instance" "jenkins_instance" {
