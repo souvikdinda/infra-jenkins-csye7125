@@ -3,7 +3,7 @@
 
 ### Summary
 ---------------------------------------------------------------------------------------------
-- This project is dedicated to automating the setup and teardown of essential AWS infrastructure components required for hosting Jenkins. In addition to provisioning Jenkins, this project also includes automated SSL certificate management using Let's Encrypt with Caddy, ensuring a secure and streamlined Jenkins deployment.
+This project is dedicated to automating the setup and teardown of essential AWS infrastructure components required for hosting Jenkins. In addition to provisioning Jenkins, this project also includes automated SSL certificate management using Let's Encrypt with Caddy, ensuring a secure and streamlined Jenkins deployment.
 
 ### To run code:
 -----------------------
@@ -15,12 +15,12 @@ Before running the Terraform scripts, ensure the following prerequisites install
 
 
 **Useful Commands**
-### Configure AWS Command Line Interface
+
 1. Setup AWS credentials:
     ```
     aws configure
     ```
-- his command will prompt you to enter your AWS Access Key ID, AWS Secret Access Key, default region name, and default output format. 
+    - This command will prompt you to enter your AWS Access Key ID, AWS Secret Access Key, default region name, and default output format. 
 
 2. Set profile to environment variables:
     -   Linux/Mac
@@ -31,36 +31,31 @@ Before running the Terraform scripts, ensure the following prerequisites install
     ```
     setx AWS_PROFILE <profilename>
     ```
-
-**Terraform Commands**
-Use the following Terraform commands to deploy and manage your infrastructure:
-
-1. Initialize Terraform:
-Run the following command to initialize Terraform in your project directory:
+3. Initialize Terraform:
+    -  Run the following command to initialize Terraform in your project directory:
     ```
-    Terraform init
+    terraform init
     ```
-2. Validate Terraform:
-To check the syntax of your Terraform configuration files, use:
+4. Validate Terraform:
+    - To check the syntax of your Terraform configuration files, use:
     ```
-   terraform validate 
+    terraform validate 
     ```
-3. Plan Terraform:
-Generate an execution plan to see what actions Terraform will take:
+5. Plan Terraform:
+    - To check the syntax of your Terraform configuration files, use:
     ```
-    terraform plan
-
-4. Apply Terraform:
-Deploy your infrastructure by running:
+    terraform plan 
     ```
-    terraform apply
+6. Apply Terraform:
+    - Deploy your infrastructure by running:
     ```
-5. Destroy Terraform:
-To tear down your infrastructure, use:
+    terraform apply 
+    ```
+7. Destroy Terraform:
+    - To tear down your infrastructure, use:
     ```
     terraform destroy
     ```
-    
 
 ### Infrastructure Setup
 
