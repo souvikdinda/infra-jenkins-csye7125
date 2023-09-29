@@ -1,1 +1,1 @@
-# infra-jenkins
+# This project is to provision infrastructure of Jenkins
