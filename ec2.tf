@@ -27,7 +27,12 @@ resource "aws_instance" "jenkins_instance" {
     "#!/bin/bash",
     "sudo sed -i 's/:80 {/jenkins.${var.host_name} {/g' /etc/caddy/Caddyfile",
     "sudo sed -i '/reverse_proxy localhost:8080/a\\ \\ \\ \\ tls ${var.email}' /etc/caddy/Caddyfile",
-    "sudo systemctl restart caddy"
+    "sudo systemctl restart caddy",
+    "sudo fallocate -l 2G /swapfile",
+    "sudo chmod 600 /swapfile",
+    "sudo mkswap /swapfile",
+    "sudo swapon /swapfile",
+    "sudo echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
   ]))
 
 }
