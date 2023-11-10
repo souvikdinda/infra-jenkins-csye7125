@@ -32,7 +32,9 @@ resource "aws_instance" "jenkins_instance" {
     "sudo chmod 600 /swapfile",
     "sudo mkswap /swapfile",
     "sudo swapon /swapfile",
-    "sudo echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
+    "sudo echo '/swapfile swap swap defaults 0 0' >> /etc/fstab",
+    "echo 'jenkins ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+    "sudo systemctl restart jenkins"
   ]))
 
 }
